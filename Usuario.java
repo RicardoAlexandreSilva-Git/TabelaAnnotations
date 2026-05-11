@@ -12,4 +12,9 @@ public class Usuario {
     public String getPalavra(){
         return palavra;
     }
+
+    @Override
+    public String toString(){
+        return "Palavra digitada: "+palavra;
+    }
 }

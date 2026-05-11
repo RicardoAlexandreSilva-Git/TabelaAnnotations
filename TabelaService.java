@@ -12,18 +12,24 @@ public class TabelaService <T>{
         lista.add(item);
     }
 
-    public void moistrarTabela(){
-        if(lista.isEmpty()){
+    public void mostrarTabela() {
+
+        if (lista.isEmpty()) {
             System.out.println("Tabela vazia.");
             return;
         }
-    }
-    Class<?> classe=lista.get(0).getClass();
-    if(classe.isAnnotationPresent(Tabela.class)){
-        Tabela tabela=classe.getAnnotation(Tabela.class);
-        System.out.println("\n--- "+ tabela.nome()+" ---");
-    }
-    for (T item : lista){
-        System.out.println(item);
+
+        Class<?> classe = lista.get(0).getClass();
+
+        if (classe.isAnnotationPresent(Tabela.class)) {
+
+            Tabela tabela = classe.getAnnotation(Tabela.class);
+
+            System.out.println("\n--- " + tabela.nome() + " ---");
+        }
+
+        for (T item : lista) {
+            System.out.println(item);
+        }
     }
 }
