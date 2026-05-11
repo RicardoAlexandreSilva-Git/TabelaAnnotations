@@ -1,6 +1,7 @@
 package service;
 
 import annotations.Tabela;
+import exceptions.PalavraInvalidaException;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,6 +11,16 @@ public class TabelaService <T>{
 
     public void adicionar(T item){
         lista.add(item);
+    }
+    public void validarPalavra(String palavra)
+        throws PalavraInvalidaException{
+        if (palavra == null || palavra.trim().isEmpty())
+        {
+            throw new PalavraInvalidaException("A palavra não pode estar vazia.");
+        }
+        if (!palavra.matches("[a-zA-ZÀ-ÿ ]+")) {
+            throw new PalavraInvalidaException("Digite apenas letras.");
+        }
     }
 
     public void mostrarTabela() {
