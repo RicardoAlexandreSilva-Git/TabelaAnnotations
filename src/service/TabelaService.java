@@ -3,6 +3,7 @@ package service;
 import annotations.Tabela;
 import exceptions.PalavraInvalidaException;
 
+import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -40,7 +41,22 @@ public class TabelaService <T>{
         }
 
         for (T item : lista) {
-            System.out.println(item);
+            Class<?> itemClasse = item.getClass();
+
+            Field[] campos = itemClasse.getDeclaredFields();
+
+            System.out.println("\nObjeto: ");
+
+            for(Field campo : campos){
+                campo.setAccessible(true);
+                try{
+                    String nomeCampo=campo.getName();
+                    Object valorCampo=campo.get(item);
+                    System.out.println(nomeCampo+": "+valorCampo);
+                } catch (IllegalAccessException e) {
+                    System.out.println("Erro no campo.");
+                }
+            }
         }
     }
 }

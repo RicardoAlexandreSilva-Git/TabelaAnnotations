@@ -6,15 +6,16 @@ import annotations.Tabela;
 public class Usuario {
     private String palavra;
 
-    public Usuario(String palavra){
+    public Usuario(String palavra) {
         this.palavra = palavra;
-    }
-    public String getPalavra(){
-        return palavra;
-    }
-
-    @Override
-    public String toString(){
-        return "Palavra digitada: "+palavra;
+//    }
+//    public String getPalavra(){
+//        return palavra;
+//    }
+//
+//    @Override
+//    public String toString(){
+//        return "Palavra digitada: "+palavra;
+//    }
     }
 }
